@@ -1,0 +1,113 @@
+{% load static %}
+
+      <header class="main-header">
+        <div class="header-upper">
+          <div class="auto-container">
+            <div class="inner-container clearfix">
+              <div class="logo-box">
+                <div class="logo">
+                  <a href="index-2.html"
+                  ><img src="{% static 'assets/images/logo-uz.png' %} " width="250" alt="" title=""
+                  /></a>
+                </div>
+              </div>
+              <div class="nav-outer clearfix">
+                <div class="mobile-nav-toggler">
+                  <span class="icon flaticon-menu-2"></span>
+                </div>
+                <nav class="main-menu navbar-expand-xl">
+                  <div class="navbar-header">
+                    <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div
+                class="navbar-collapse collapse clearfix"
+                id="navbarSupportedContent"
+                >
+                <ul class="navigation clearfix">
+                  <li class="current dropdown">
+                    <a href="{% url 'index' %}">Bosh sahifa</a>
+                  </li>
+                          <li>
+                    <a href="{% url 'contract_create' %}">Xarid qilish</a>
+                  </li>
+                  <li>
+                    <a href="#">Biz haqimizda</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Xizmatlar</a>
+                  </li>
+                  <li><a href="#">Bog'lanish  </a></li>
+                </ul>
+              </div>
+            </nav>
+            <div class="outer-box clearfix">
+              <div class="phone-box">
+                <div class="box-inner">
+                  <a class="phone" href="tel:+998712160500"
+                  >+998 (71) 216 - 24 - 00
+                  <span class="icon flaticon-call-2"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sticky-header">
+        <div class="auto-container clearfix">
+          <div class="logo pull-left">
+            <a href="{% url 'index' %}" title=""
+            ><img src="{% static 'assets/images/logo-uz.png' %} " width="250" alt="" title=""
+            /></a>
+          </div>
+          <div class="pull-right">
+            <div class="mobile-nav-toggler">
+              <span class="icon flaticon-menu-2"></span>
+            </div>
+            <nav class="main-menu navbar-expand-md">
+                  </nav>
+                  <div class="outer-box clearfix">
+                    <div class="phone-box">
+                      <div class="box-inner">
+                        <a class="phone" href="tel:+998712160500"
+                        >+998 (71) 216 - 24 - 00 <span class="icon flaticon-call-2"></span
+                          ></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mobile-menu">
+                <div class="menu-backdrop"></div>
+                <div class="close-btn">
+                  <span class="icon flaticon-multiply"></span>
+                </div>
+                <nav class="menu-box">
+                  <div class="nav-logo">
+                    <a href="{% url 'index' %}"
+                    ><img src="{% static 'images/logo-uz.png' %} " alt="" title=""
+                    /></a>
+                  </div>
+                  <div class="menu-outer">
+                  </div>
+                </nav>
+              </div>
+            </header>
+
+{#<a href="{% url 'contract_list' %}">Ro'yxat</a> <br>#}
+{#<a href="{% url 'contract_create' %}">Polis olish</a>#}
+

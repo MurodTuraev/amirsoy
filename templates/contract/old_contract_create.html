@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row" id="app">
+        <h2>[[ message ]]</h2>
+
+    </div>
+
+{% endblock %}
+
+{% block JavaScript %}
+    <script>
+        new Vue({
+            el: '#app',
+            delimiters: ["[[", "]]"],
+            data: {
+                message: 'Vue is working...',
+                <!-- START person -->
+                pinfl: null,
+                passportSeries: "AA",
+                passportNumber: "0046530",
+                lastNameLatin: null,
+                firstNameLatin: null,
+                middleNameLatin: null,
+                birthDate: "1987-02-10",
+                isConsent: "Y",
+                phone: null,
+                email: "default@agros.uz",
+                address: null,
+                personData: null,
+                <!-- END person -->
+            },
+
+            methods: {
+
+                <!-- START GET PERSON -->
+                person: function () {
+                    const get_person = {
+                        "birthDate": this.birthDate,
+                        "passportSeries": this.passportSeries.toUpperCase(),
+                        "passportNumber": this.passportNumber,
+                        "isConsent": this.isConsent
+                    }
+                    console.log(get_person)
+                    const vp = this;
+                    axios.post('http://195.158.9.252:1441/person_birth_date/', get_person)
+                        .then(function (response) {
+                            data = response.data.result
+                            console.log(data)
+                            vp.lastNameLatin = data.lastNameLatin;
+                            vp.firstNameLatin = data.firstNameLatin;
+                            vp.middleNameLatin = data.middleNameLatin;
+                            vp.address = data.address
+                            vp.pinfl = data.pinfl,
+                                vp.personData = JSON.stringify(data);
+                        })
+                        .catch(function (error) {
+                            alert('Passport malumotlari topilmadi');
+                            console.log(error);
+                        });
+                },
+                <!-- END GET PERSON -->
+
+            },
+        });
+    </script>
+{% endblock %}

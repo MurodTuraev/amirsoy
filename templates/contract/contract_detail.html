@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="login-section">
+        <div class="auto-container">
+            <div class="row">
+                <div class="col-9 m-auto">
+                    <div>
+                        <div class="section-icons-outer parallax-scene-2">
+                            <div
+                                    data-depth="0.20"
+                                    class="icon-layer-one"
+                                    style="background-image: url({% static 'assets/images/icons/icon-1.png' %})"
+                            ></div>
+                            <div
+                                    data-depth="0.40"
+                                    class="icon-layer-two"
+                                    style="background-image: url({% static 'assets/images/background/pattern-4.png' %} )"
+                            ></div>
+                        </div>
+                        <!-- Sec Title -->
+                        <div class="title-box">
+                            <h4>Polis xarid qilindi</h4> <br>
+                        </div>
+
+                        <div class="form-box">
+                            <div class="styled-form  ">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Sugurta polisi</td>
+                                        <td>{{ contract.policy_seria }} {{ contract.policy_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Sugurta polisi mukofoti</td>
+                                        <td>{{ contract.policy_insurancePremium }} ({{ contract.policy_insurancePremium_word }}) so'm    </td>
+                                    </tr>
+                                     <tr>
+                                        <td>2</td>
+                                        <td>Sugurta polisi javobgarligi</td>
+                                        <td>{{ contract.policy_sumInsured }} ({{ contract.policy_sumInsured_word }}) so'm    </td>
+                                    </tr>
+                                    <td>3</td>
+                                    <td>Amal qilish muddati</td>
+                                    <td>{{ contract.policy_start_date|date:"d.m.Y" }}
+                                        dan {{ contract.policy_end_date|date:"d.m.Y" }} gacha
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>F.I.O.</td>
+                                        <td>{{ contract.person_lastname }} {{ contract.person_firstname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Manzil</td>
+                                        <td>{{ contract.address }}  </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Telefon raqam</td>
+                                        <td>{{ contract.person_phoneNumber }}  </td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Polisni yuklab olish</td>
+                                        <td><a href="{{ contract.policy_pdf }}">Yuklab olish</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>QR-code</td>
+                                        <td><img width="150" src="{% static 'UZIN9.png' %}" alt=""></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block JavaScript %}
+{% endblock %}

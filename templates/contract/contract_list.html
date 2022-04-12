@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>LIST</h2>
+    <div class="row">
+        {% for contract in contracts %}
+            <h4>
+                <a href="{{ contract.get_absolute_url }}">{{ contract.policy_seria }} {{ contract.policy_number }}</a>
+            </h4>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block JavaScript %}
+{% endblock %}

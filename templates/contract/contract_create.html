@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Insurance Page Section -->
+    <section class="insurance-page-section">
+        <div class="auto-container">
+            <div class="inner-container">
+                <!-- Sec Title -->
+                <div class="sec-title">
+                    <h2>
+                        Online E-polis xizmatlari
+                    </h2>
+                    <div class="text">
+                        Sug'urta polislarini istalgan vaqtda va istalgan joyda online xarid qiling
+                    </div>
+                </div>
+                <!-- End Sec Title -->
+                <div class="section-icons-outer parallax-scene-2">
+                    <div
+                            data-depth="0.20"
+                            class="icon-layer"
+                            style="background-image: url({% static 'assets/images/icons/icon-1.png'%} )"
+                    ></div>
+                </div>
+                <div class="row clearfix">
+                    <!-- Column -->
+                    <div class="form-column col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <h4>Polis ma'lumotlarini kiriting</h4>
+                            <!-- Login Form -->
+                            <div class="styled-form" id="app">
+
+                                <form action="{% url 'contract_create' %}" method="post">
+                                           {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label class="mb-1">Pasport seria</label>
+                                                <input type="text" v-model="passportSeries" name="passportSeries" placeholder="AA" value="AA" required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Pasport raqam</label>
+                                                <input type="text"   v-model="passportNumber" name="passportNumber" placeholder="1234567"
+                           value="0046530"  required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Tugulgan kun</label>
+                                                <input type="date"   v-model="birthDate" name="birthDate" placeholder="11.01.2021"
+                           value="1987-02-10" required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                            <button class="btn-style-one theme-btn btn_polis  " type="button" @click="person">Aniqlash</button>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Familya</label>
+                                                <input type="text"  v-model="lastNameLatin" name="lastNameLatin" placeholder="Akmalov" required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Ism</label>
+                                                <input type="text"  v-model="firstNameLatin" name="firstNameLatin" placeholder="Jamshid" required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Otasining ismi</label>
+                                                <input type="text" v-model="middleNameLatin" name="middleNameLatin" placeholder="Jasur o'g'li" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Boshlanish vaqti</label>
+                                                <input type="date" id="id_policy_start_date" name="policy_start_date" value="2022-02-21" required/>
+                                            </div>
+                                        </div>
+                                                  <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Tugash vaqti</label>
+                                                <input type="date" id="id_policy_end_date" name="policy_end_date" value="2023-02-20" required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="mb-1">Polis summasi</label>
+                                                <input type="text" id="id_policy_insurancePremium" name="policy_insurancePremium" placeholder="" value="10000" required/>
+                                            </div>
+                                        </div>
+                                          <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="mb-1">Telefon raqami</label>
+                                                <input type="text" id="phone" name="phone" placeholder="+998996666666"
+                           value="+998909710111" required/>
+                                            </div>
+                                        </div>
+                                            <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="mb-1">Manzili</label>
+                                                <input type="text" v-model="address" name="address" placeholder="" required/>
+                                            </div>
+                                        </div>
+                                        <div class="column col-lg-12 col-md-12 row col-sm-12">
+                                            <div class="col-12">
+                                                <h6>To'lov turini tanlang</h6>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="form-group   margin">
+                                                    <div class="radio-box">
+                                                        <input type="radio" name="payment_type" id="id_Payme" value="Payme">
+                                                        <label for="id_Payme">Payme</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group margin">
+                                                    <div class="radio-box">
+                                                        <input type="radio" name="payment_type" id="id_Click" value="Click">
+                                                        <label for="id_Click">Click</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <div class="clearfix">
+                                                    <div class="pull-left">
+                                                        <div class="check-box">
+                                                            <input type="checkbox" name="remember-password" id="gridCheck">
+                                                            <label for="gridCheck">Oferta bilan tanishish <a
+                                                                    data-toggle="modal"
+                                                                    data-target="#exampleModalCenter">
+                                                                <i>batafsil</i></a> </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-none">
+                                        <input type="text" v-model="pinfl" name="pinfl">
+            <input type="email" v-model="email" name="email">
+            <input type="text" v-model="personData" name="personData" placeholder="personData"> <br> <br>
+                                    </div>
+                                    <div class="form-group  ">
+                                        <button type="submit" class="theme-btn btn-style-one text-center w-100">
+                              <span class="  "
+                              >Yuborish  </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Services Section -->
+
+
+
+{% endblock %}
+
+{% block JavaScript %}
+    <script>
+        new Vue({
+            el: '#app',
+            delimiters: ["[[", "]]"],
+            data: {
+                message: 'Vue is working...',
+                <!-- START person -->
+                pinfl: null,
+                passportSeries: "AA",
+                passportNumber: "0046530",
+                lastNameLatin: null,
+                firstNameLatin: null,
+                middleNameLatin: null,
+                birthDate: "1987-02-10",
+                isConsent: "Y",
+                phone: null,
+                email: "default@agros.uz",
+                address: null,
+                personData: null,
+                <!-- END person -->
+            },
+
+            methods: {
+
+                <!-- START GET PERSON -->
+                person: function () {
+                    const get_person = {
+                        "birthDate": this.birthDate,
+                        "passportSeries": this.passportSeries.toUpperCase(),
+                        "passportNumber": this.passportNumber,
+                        "isConsent": this.isConsent
+                    }
+                    console.log(get_person)
+                    const vp = this;
+                    axios.post('http://195.158.9.252:1441/person_birth_date/', get_person)
+                        .then(function (response) {
+                            data = response.data.result
+                            console.log(data)
+                            vp.lastNameLatin = data.lastNameLatin;
+                            vp.firstNameLatin = data.firstNameLatin;
+                            vp.middleNameLatin = data.middleNameLatin;
+                            vp.address = data.address
+                            vp.pinfl = data.pinfl,
+                                vp.personData = JSON.stringify(data);
+                        })
+                        .catch(function (error) {
+                            alert('Passport malumotlari topilmadi');
+                            console.log(error);
+                        });
+                },
+                <!-- END GET PERSON -->
+
+            },
+        });
+    </script>
+{% endblock %}
